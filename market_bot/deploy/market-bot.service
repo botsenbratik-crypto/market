@@ -1,0 +1,16 @@
+[Unit]
+Description=Market Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/Documents/market_bot
+Environment=PYTHONPATH=/root/Documents
+ExecStart=/root/Documents/.venv/bin/python /root/Documents/market_bot/main.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
